@@ -1,0 +1,23 @@
+body{
+    background-color: aliceblue;
+}
+.box{
+    background-color: black;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+.box h3,h2{
+    color: aliceblue;
+}
+.box input{
+    margin-bottom: 2vh;
+}
+.body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 20px;
+}
+.botones{
+    margin-left: 44.5vw;
+}

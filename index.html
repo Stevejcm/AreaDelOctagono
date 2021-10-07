@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>CALCULO DEL AREA DEL RECTANGULO</title>
+        <link rel="stylesheet" href="Style.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<script>
+    function calcular(longitud, apotema) {
+        var parametros = {
+            "longitud" : longitud,
+            "apotema" : apotema };
+        $.ajax({
+        url: "script.php",
+        type: "post",
+        data: parametros,
+        beforeSend: function() {
+        $("#resp").html("Procesando, espere por favor...");
+        },
+        fail: function() {
+        $("#resp").html("Error al realizar el calculo");
+        },
+        success: function(response) {
+        $("#resp").html(response);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+        console.log(textStatus, errorThrown);
+        }
+        });
+    }
+    </script>
+    <body>
+        <h1 style="text-align: center;">CALCULO DEL AREA DEL OCTANGULO REGULAR</h1>
+        <br><br>
+        <div class="body">
+            <div class="box">
+                <h3>Longitud:</h3>
+                <input type="text" name="longitud" id="longitud">
+            </div>
+            <div class="box">
+                <h3>Apotema:</h3>
+                <input type="text" name="apotema" id="apotema">
+            </div>
+            </div>
+            <div class="botones">
+                <button onclick="calcular($('#longitud').val(), $('#apotema').val())" type="submit" name="action">Calcular</button>
+                <input type="reset" name="limpiar" value="Limpiar">
+            </div>
+        <div id="resp" class="input-field col s6"></div>
+        <div class="box">
+            <h2>Steve Castellanos</h2>
+            <h3>C.I: 23.748.129</h3>
+        </div>
+    </body>
+</html>
